@@ -63,7 +63,7 @@ public class UserDaoJDBCImpl implements UserDao {
     public List<User> getAllUsers() {
         List<User> userList = new ArrayList<>();
 
-        try (Statement stm = CON.createStatement()) {
+       /* try (Statement stm = CON.createStatement()) {
             ResultSet rst = stm.executeQuery("SELECT * FROM user");
             while (rst.next()) {
                 User user = new User();
@@ -75,7 +75,7 @@ public class UserDaoJDBCImpl implements UserDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
         return userList;
     }
 

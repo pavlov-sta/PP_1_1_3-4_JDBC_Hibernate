@@ -1,25 +1,32 @@
 package jm.task.core.jdbc.model;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.hibernate.annotations.Type;
 
-@Table
+import javax.persistence.*;
+
+@Entity
+@Table(name = "user", schema = "hiber_msql", catalog = "")
 public class User {
-    @Id
-    private Long id;
 
-    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "id", nullable = false)
+    private long id;
+
+    @Basic
+    @Column(name = "name", nullable = true, length = 255)
     private String name;
 
-    @Column
+    @Basic
+    @Column(name = "last_name", nullable = true, length = 255)
     private String lastName;
 
+    @Basic
     @Column
+    @Type(type = "org.hibernate.type.ByteType")
     private Byte age;
 
     public User() {
-
     }
 
     public User(String name, String lastName, Byte age) {
